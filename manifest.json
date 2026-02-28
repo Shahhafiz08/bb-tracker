@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Bot-Bouncer Tracker",
+    "version": "1.0",
+    "description": "Tracks Reddit URLs and checks for bot-bouncer moderator",
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*.reddit.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Bot-Bouncer Tracker"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.reddit.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
